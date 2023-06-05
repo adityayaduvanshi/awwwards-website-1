@@ -81,4 +81,7 @@ export const Cursor = styled.div`
     height: 56px;
     border: 4px solid ${(props) => props.theme.red};
   }
+  &.nav-open {
+    background: ${(props) => props.theme.text};
+  }
 `;

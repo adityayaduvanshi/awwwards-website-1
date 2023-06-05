@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import normalize from 'styled-normalize';
@@ -8,6 +8,7 @@ import {
   useGlobalDispatchContext,
   useGlobalStateContext,
 } from './context/globalContext';
+import Navigation from './components/navigation';
 
 const GlobalStyle = createGlobalStyle`
 ${normalize}
@@ -52,13 +53,23 @@ const Layout = ({ children }) => {
     cursorType = (cursorStyles.includes(cursorType) && cursorType) || false;
     dispatch({ type: 'CURSOR_TYPE', cursorType: cursorType });
   };
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
     <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
       <GlobalStyle />
-      <CustomCursor />
+      <CustomCursor toggleMenu={toggleMenu} />
 
-      <Header onCursor={onCursor} />
+      <Header
+        onCursor={onCursor}
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
+      />
+      <Navigation
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
+        onCursor={onCursor}
+      />
       <main>{children}</main>
     </ThemeProvider>
   );

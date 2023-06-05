@@ -1,9 +1,14 @@
+import React from 'react';
 import Layout from './Layout';
 import HomeBanner from './components/homepage/HomeBanner';
+import HomeFeature from './components/homepage/HomeFeature';
+import HomeAbout from './components/homepage/HomeAbout';
+
 import {
   useGlobalDispatchContext,
   useGlobalStateContext,
 } from './context/globalContext';
+import HomeContent from './components/homepage/HomeContent';
 
 import { GlobalProvider } from './context/globalContext';
 
@@ -17,9 +22,12 @@ const Wrapper = () => {
   };
 
   return (
-    <div>
+    <>
       <HomeBanner onCursor={onCursor} />
-    </div>
+      <HomeContent />
+      <HomeFeature onCursor={onCursor} />
+      <HomeAbout onCursor={onCursor} />
+    </>
   );
 };
 

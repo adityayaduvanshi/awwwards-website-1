@@ -47,7 +47,7 @@ export const Flex = styled.div`
   ${(props) =>
     props.alignTop &&
     css`
-      align-items: top;
+      align-items: flex-start;
     `}
     ${(props) =>
     props.noHeight &&
@@ -57,7 +57,7 @@ export const Flex = styled.div`
 `;
 
 export const Cursor = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 32px;

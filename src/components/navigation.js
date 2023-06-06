@@ -11,6 +11,8 @@ import {
   CloseNav,
   NavVideos,
 } from '../styles/navigationStyles';
+import { FooterContent, FooterSocial } from '../styles/footerStyles';
+import { Instagram, Facebook, Vimeo } from '../assets/svg/social-icons';
 
 const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
   const [revealVideo, setRevealVideo] = useState({
@@ -127,7 +129,39 @@ const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
                   ))}
                 </ul>
               </NavList>
-              <NavFooter></NavFooter>
+              <NavFooter>
+                <Flex spaceBetween>
+                  <FooterContent>
+                    <p>info@furrow.studio</p>
+                  </FooterContent>
+                  <FooterContent wider>
+                    <p>701.447.1978</p>
+                  </FooterContent>
+                  <FooterSocial>
+                    <a
+                      href="https://www.instagram.com"
+                      onMouseEnter={() => onCursor('pointer')}
+                      onMouseLeave={onCursor}
+                    >
+                      <Instagram />
+                    </a>
+                    <a
+                      href="https://www.facebook.com"
+                      onMouseEnter={() => onCursor('pointer')}
+                      onMouseLeave={onCursor}
+                    >
+                      <Facebook />
+                    </a>
+                    <a
+                      href="https://www.facebook.com"
+                      onMouseEnter={() => onCursor('pointer')}
+                      onMouseLeave={onCursor}
+                    >
+                      <Vimeo />
+                    </a>
+                  </FooterSocial>
+                </Flex>
+              </NavFooter>
               <NavVideos>
                 <motion.div
                   animate={{ width: revealVideo.show ? 0 : '100%' }}

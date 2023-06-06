@@ -9,6 +9,7 @@ import {
   useGlobalStateContext,
 } from './context/globalContext';
 import Navigation from './components/navigation';
+import Footer from './components/Footer';
 
 const GlobalStyle = createGlobalStyle`
 ${normalize}
@@ -38,16 +39,24 @@ body {
 const Layout = ({ children }) => {
   const dispatch = useGlobalDispatchContext();
   const { currentTheme, cursorStyles } = useGlobalStateContext();
+  const [hamburgerPosition, setHamburgerPostion] = useState({
+    x: 0,
+    y: 0,
+  });
 
   const darkTheme = {
     background: '#000',
     text: '#fff',
     red: '#ea291e',
+    left: `${hamburgerPosition.x}px`,
+    top: `${hamburgerPosition.y}px`,
   };
   const lightTheme = {
     background: '#fff',
     text: '#000',
     red: '#ea291e',
+    left: `${hamburgerPosition.x}px`,
+    top: `${hamburgerPosition.y}px`,
   };
   const onCursor = (cursorType) => {
     cursorType = (cursorStyles.includes(cursorType) && cursorType) || false;
@@ -61,6 +70,8 @@ const Layout = ({ children }) => {
       <CustomCursor toggleMenu={toggleMenu} />
 
       <Header
+        hamburgerPosition={hamburgerPosition}
+        setHamburgerPostion={setHamburgerPostion}
         onCursor={onCursor}
         toggleMenu={toggleMenu}
         setToggleMenu={setToggleMenu}
@@ -71,6 +82,7 @@ const Layout = ({ children }) => {
         onCursor={onCursor}
       />
       <main>{children}</main>
+      <Footer onCursor={onCursor} />
     </ThemeProvider>
   );
 };

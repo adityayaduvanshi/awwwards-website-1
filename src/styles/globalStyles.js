@@ -70,6 +70,9 @@ export const Cursor = styled.div`
   will-change: width, height, transform, border;
   pointer-events: none;
   z-index: 999;
+  /* @media (hover: none) and (pointer: coarse), (max-width: 500px) {
+    display: none;
+  } */
 
   &.pointer {
     border: 4px solid ${(props) => props.theme.text} !important;
@@ -83,5 +86,13 @@ export const Cursor = styled.div`
   }
   &.nav-open {
     background: ${(props) => props.theme.text};
+  }
+  &.locked {
+    background: transparent !important;
+    width: 56px;
+    height: 56px;
+    border: 4px solid ${(props) => props.theme.red};
+    top: ${(props) => props.theme.top} !important;
+    left: ${(props) => props.theme.left} !important;
   }
 `;

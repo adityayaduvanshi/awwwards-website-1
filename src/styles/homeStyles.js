@@ -150,7 +150,7 @@ export const FeaturedProjects = styled.div`
 `;
 
 export const HomeAboutSection = styled(motion.div)`
-  margin-bottom: 200px;
+  /* margin-bottom: 200px; */
 `;
 export const About = styled.div`
   width: 100%;

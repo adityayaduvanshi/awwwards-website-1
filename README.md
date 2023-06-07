@@ -12,6 +12,7 @@ Demo Link - https://furrow-awwward.vercel.app
 ## Screenshots
 
 ![App Screenshot](screenshot1.gif)
+![App Screenshot](screenshot2.gif)
 
 
 ## Tech Stack
